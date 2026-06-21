@@ -1,0 +1,47 @@
+// Colors
+$paper-white: #F6F5F2;
+$concrete: #C7C4BD;
+$graphite: #303030;
+$oak: #9C7545;
+$ink: #1C1C1C;
+$steel: #9DA2A5;
+$accent-blue: #4D83C8;
+
+// Typography
+$font-display: 'Neue Haas Grotesk Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-body: 'Suisse International', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+// Spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 4rem;
+$space-2xl: 6rem;
+$space-3xl: 8rem;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: 2rem;
+$grid-max-width: 1440px;
+
+// Transitions
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+$transition-fast: 0.2s $ease-out-expo;
+$transition-base: 0.4s $ease-out-expo;
+$transition-slow: 0.8s $ease-out-expo;
+$transition-slower: 1.2s $ease-out-expo;
+
+// Z-indices
+$z-cursor: 9999;
+$z-nav: 1000;
+$z-loader: 2000;

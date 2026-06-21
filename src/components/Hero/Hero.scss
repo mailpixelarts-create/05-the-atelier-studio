@@ -1,0 +1,244 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $paper-white;
+
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($accent-blue, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($accent-blue, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__sheet {
+    position: absolute;
+    inset: 5%;
+    background: $paper-white;
+    box-shadow: 0 2px 40px rgba($ink, 0.06);
+    opacity: 0;
+
+    @media (min-width: $bp-lg) {
+      inset: 8%;
+    }
+  }
+
+  &__blueprint-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    line {
+      stroke: $accent-blue;
+      stroke-width: 0.5;
+      opacity: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  // 3D scene
+  &__3d-scene {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 250px;
+    perspective: 800px;
+
+    @media (max-width: $bp-lg) {
+      display: none;
+    }
+  }
+
+  &__3d-element {
+    position: absolute;
+    opacity: 0;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    &--counter {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 180px;
+    }
+
+    &--espresso {
+      top: 20%;
+      right: 0;
+      width: 70px;
+    }
+
+    &--book {
+      bottom: 10%;
+      right: 20%;
+      width: 50px;
+    }
+  }
+
+  // Text
+  &__text {
+    max-width: 700px;
+  }
+
+  &__label {
+    margin-bottom: $space-lg;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: $ink;
+    line-height: 1;
+    margin-bottom: $space-lg;
+
+    .split-char {
+      display: inline-block;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: $graphite;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: $space-xl;
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__cta-line {
+    width: 60px;
+    height: 1px;
+    background: $accent-blue;
+    transform-origin: left center;
+  }
+
+  &__cta-text {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $graphite;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: $accent-blue;
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // Scroll indicator
+  &__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media (min-width: $bp-lg) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__scroll-text {
+    font-family: $font-mono;
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $steel;
+    writing-mode: vertical-rl;
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: $steel;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  // Dimension annotations
+  &__dimension {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $font-mono;
+    font-size: 0.5rem;
+    color: $steel;
+
+    &--left {
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      display: none;
+
+      @media (min-width: $bp-lg) {
+        display: flex;
+      }
+    }
+
+    &--bottom {
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (min-width: $bp-lg) {
+        bottom: 4rem;
+      }
+    }
+  }
+
+  &__dimension-line {
+    width: 40px;
+    height: 1px;
+    background: $steel;
+    opacity: 0.5;
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.4; transform: scaleY(0.6); transform-origin: top; }
+}

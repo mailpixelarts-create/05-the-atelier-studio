@@ -1,0 +1,188 @@
+.workshop {
+  background: $paper-white;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 600px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+    margin-bottom: $space-lg;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__intro {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $graphite;
+    line-height: 1.7;
+  }
+
+  &__bench {
+    position: relative;
+  }
+
+  &__object {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-xl;
+    background: rgba($paper-white, 0.8);
+    border: 1px solid $concrete;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      border-color: $accent-blue;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba($ink, 0.08);
+    }
+
+    &-visual {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-info {
+      text-align: center;
+    }
+
+    &-name {
+      font-family: $font-display;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: $ink;
+      margin-bottom: 0.25rem;
+    }
+
+    &-description {
+      font-family: $font-body;
+      font-size: 0.8125rem;
+      color: $steel;
+      line-height: 1.5;
+    }
+
+    &-rotate {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: $font-mono;
+      font-size: 0.5625rem;
+      color: $steel;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .workshop__object:hover & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__dimensions {
+    display: none;
+
+    @media (min-width: $bp-lg) {
+      display: flex;
+      justify-content: space-between;
+      margin-top: $space-lg;
+    }
+  }
+
+  &__dimension {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.5625rem;
+    color: $steel;
+    letter-spacing: 0.1em;
+
+    &-line {
+      flex: 1;
+      height: 1px;
+      background: $concrete;
+    }
+
+    &--width {
+      width: 100%;
+    }
+
+    &--height {
+      position: absolute;
+      right: -$space-xl;
+      top: 0;
+      bottom: 0;
+      flex-direction: column;
+      width: auto;
+      height: 100%;
+
+      .workshop__dimension-line {
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.workbench {
+  position: relative;
+  padding: $space-xl 0;
+
+  &__surface {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, $oak 0%, darken($oak, 10%) 50%, $oak 100%);
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba($ink, 0.1);
+  }
+
+  &__surface-grain {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 8px,
+      rgba($ink, 0.03) 8px,
+      rgba($ink, 0.03) 9px
+    );
+    border-radius: 2px;
+  }
+
+  &__objects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-md;
+    margin-top: $space-lg;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.footer {
+  background: $ink;
+  color: $paper-white;
+  padding: 0 0 $space-xl;
+
+  // Marquee
+  &__marquee {
+    overflow: hidden;
+    padding: $space-xl 0;
+    border-bottom: 1px solid rgba($paper-white, 0.08);
+    margin-bottom: $space-3xl;
+  }
+
+  &__marquee-track {
+    display: flex;
+    gap: 2rem;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+
+    span {
+      font-family: $font-display;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: rgba($paper-white, 0.15);
+    }
+  }
+
+  // Content
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3xl;
+    margin-bottom: $space-3xl;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  &__logo-prefix {
+    font-family: $font-mono;
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    color: $steel;
+    text-transform: uppercase;
+  }
+
+  &__logo-name {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+  }
+
+  &__tagline {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $steel;
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+  }
+
+  &__link-group {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__link-title {
+    font-family: $font-mono;
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $accent-blue;
+    margin-bottom: $space-sm;
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: 0.9375rem;
+    color: $steel;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $paper-white;
+    }
+  }
+
+  // Bottom
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba($paper-white, 0.08);
+    margin-bottom: $space-xl;
+  }
+
+  &__bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-sm;
+
+    @media (min-width: $bp-md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    color: $steel;
+    letter-spacing: 0.08em;
+  }
+
+  &__credit {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    color: $steel;
+    letter-spacing: 0.08em;
+  }
+
+  &__studio-name {
+    color: $accent-blue;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -1,0 +1,212 @@
+.reservation {
+  background: $paper-white;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 600px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+    margin-bottom: $space-lg;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__intro {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $graphite;
+    line-height: 1.7;
+  }
+
+  // Form
+  &__form {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &--three {
+      @media (min-width: $bp-md) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $steel;
+  }
+
+  &__input {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $ink;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $concrete;
+    padding: 0.75rem 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+    cursor: none;
+
+    &:focus {
+      border-color: $accent-blue;
+    }
+
+    &::placeholder {
+      color: $concrete;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%239DA2A5' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    padding-right: 20px;
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+    border: 1px solid $concrete;
+    padding: 0.75rem;
+  }
+
+  &__purposes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+  }
+
+  &__purpose-btn {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $graphite;
+    padding: 0.5rem 1rem;
+    border: 1px solid $concrete;
+    background: transparent;
+    transition: all 0.3s ease;
+
+    &.is-active {
+      color: $paper-white;
+      background: $ink;
+      border-color: $ink;
+    }
+
+    &:hover:not(.is-active) {
+      border-color: $accent-blue;
+    }
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $paper-white;
+    background: $ink;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: none;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: $accent-blue;
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // Confirmation
+  &__confirmation {
+    text-align: center;
+    padding: $space-3xl 0;
+
+    &-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto $space-xl;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-title {
+      font-family: $font-display;
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: $ink;
+      margin-bottom: $space-md;
+    }
+
+    &-text {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $graphite;
+      line-height: 1.7;
+      margin-bottom: $space-xl;
+    }
+
+    &-btn {
+      font-family: $font-mono;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $graphite;
+      background: transparent;
+      border: 1px solid $concrete;
+      padding: 0.75rem 1.5rem;
+      cursor: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: $accent-blue;
+        color: $accent-blue;
+      }
+    }
+  }
+}

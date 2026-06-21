@@ -1,0 +1,145 @@
+.process {
+  background: $paper-white;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 600px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3xl;
+    padding-left: 0;
+
+    @media (min-width: $bp-lg) {
+      padding-left: 100px;
+    }
+  }
+
+  &__timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: $concrete;
+    transform-origin: top center;
+
+    @media (min-width: $bp-lg) {
+      left: 40px;
+    }
+  }
+
+  &__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+    align-items: start;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: 120px 1fr;
+      gap: $space-xl;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 0;
+      width: 9px;
+      height: 9px;
+      border: 2px solid $accent-blue;
+      border-radius: 50%;
+      background: $paper-white;
+
+      @media (min-width: $bp-lg) {
+        left: 36px;
+      }
+    }
+
+    &-sketch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 120px;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+
+      @media (min-width: $bp-md) {
+        justify-content: flex-end;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: $space-sm;
+    }
+
+    &-number {
+      font-family: $font-mono;
+      font-size: 0.625rem;
+      color: $accent-blue;
+      letter-spacing: 0.1em;
+    }
+
+    &-subtitle {
+      font-family: $font-mono;
+      font-size: 0.6875rem;
+      color: $steel;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    &-title {
+      font-family: $font-display;
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: $ink;
+      letter-spacing: 0.02em;
+    }
+
+    &-description {
+      font-family: $font-body;
+      font-size: 0.9375rem;
+      color: $graphite;
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    &-line {
+      display: none;
+    }
+  }
+
+  &__bean-journey {
+    margin-top: $space-3xl;
+    opacity: 0.5;
+
+    svg {
+      width: 100%;
+      height: 60px;
+    }
+  }
+}

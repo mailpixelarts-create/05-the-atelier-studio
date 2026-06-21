@@ -1,0 +1,49 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid $graphite;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor;
+  mix-blend-mode: difference;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+
+  &.is-hovering {
+    width: 56px;
+    height: 56px;
+    border-color: $accent-blue;
+    background-color: rgba($accent-blue, 0.08);
+  }
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: $graphite;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease, background 0.3s ease;
+
+  &.is-hovering {
+    transform: scale(0) !important;
+  }
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
