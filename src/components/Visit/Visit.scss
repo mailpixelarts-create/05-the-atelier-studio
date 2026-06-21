@@ -1,0 +1,80 @@
+.visit {
+  background: $paper-white;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 600px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3xl;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__detail {
+    &-title {
+      font-family: $font-mono;
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: $accent-blue;
+      margin-bottom: $space-sm;
+    }
+
+    &-text {
+      font-family: $font-body;
+      font-size: 1rem;
+      color: $graphite;
+      line-height: 1.8;
+    }
+
+    &-note {
+      font-size: 0.875rem;
+      color: $steel;
+    }
+  }
+
+  &__map {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%;
+    overflow: hidden;
+    border: 1px solid $concrete;
+
+    &-placeholder {
+      position: absolute;
+      inset: 0;
+      background: rgba($concrete, 0.05);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

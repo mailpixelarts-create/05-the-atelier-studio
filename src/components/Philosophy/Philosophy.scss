@@ -1,0 +1,117 @@
+.philosophy {
+  position: relative;
+  background: $paper-white;
+  overflow: hidden;
+
+  &__grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($accent-blue, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($accent-blue, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 700px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3xl;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: $space-3xl;
+    }
+  }
+
+  &__manifesto {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+  }
+
+  &__text {
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    color: $graphite;
+    line-height: 1.8;
+  }
+
+  &__principles {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+    padding-top: $space-lg;
+
+    @media (min-width: $bp-lg) {
+      padding-top: 0;
+      border-left: 1px solid $concrete;
+      padding-left: $space-xl;
+    }
+  }
+
+  &__principle {
+    position: relative;
+
+    &-number {
+      font-family: $font-mono;
+      font-size: 0.625rem;
+      color: $accent-blue;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: $space-sm;
+    }
+
+    &-title {
+      font-family: $font-display;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: $ink;
+      margin-bottom: $space-sm;
+    }
+
+    &-text {
+      font-family: $font-body;
+      font-size: 0.9375rem;
+      color: $steel;
+      line-height: 1.7;
+    }
+  }
+
+  &__construction-marks {
+    position: absolute;
+    bottom: $space-xl;
+    right: $space-xl;
+    width: 80px;
+    height: 80px;
+    opacity: 0.4;
+    display: none;
+
+    @media (min-width: $bp-lg) {
+      display: block;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

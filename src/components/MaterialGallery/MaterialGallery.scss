@@ -1,0 +1,167 @@
+.gallery {
+  background: $paper-white;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: $space-3xl;
+    max-width: 600px;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: $ink;
+    line-height: 1.15;
+    margin-bottom: $space-lg;
+
+    em {
+      font-style: italic;
+      color: $accent-blue;
+    }
+  }
+
+  &__intro {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $graphite;
+    line-height: 1.7;
+  }
+
+  &__masonry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    &--tall {
+      @media (min-width: $bp-md) {
+        grid-row: span 2;
+      }
+    }
+
+    &--wide {
+      @media (min-width: $bp-lg) {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+
+    .gallery__item--tall & {
+      padding-bottom: 200%;
+    }
+
+    .gallery__item--wide & {
+      padding-bottom: 60%;
+
+      @media (min-width: $bp-lg) {
+        padding-bottom: 60%;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+  }
+
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $space-xl $space-lg $space-lg;
+    background: linear-gradient(to top, rgba($ink, 0.8) 0%, transparent 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .gallery__item:hover & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__overlay-name {
+    display: block;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $paper-white;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  &__overlay-texture {
+    font-family: $font-mono;
+    font-size: 0.6875rem;
+    color: $steel;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__item-number {
+    position: absolute;
+    top: $space-md;
+    right: $space-md;
+    font-family: $font-mono;
+    font-size: 0.625rem;
+    color: rgba($paper-white, 0.6);
+    letter-spacing: 0.1em;
+  }
+
+  &__annotations {
+    display: flex;
+    justify-content: center;
+    gap: $space-3xl;
+    margin-top: $space-3xl;
+  }
+
+  &__annotation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-sm;
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    span {
+      font-family: $font-mono;
+      font-size: 0.5625rem;
+      color: $steel;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+}
